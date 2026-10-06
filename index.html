@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <base target="_blank">
+  <title>รวมลิงค์ระบบบริหารสถานศึกษา</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.25/dist/sweetalert2.all.min.js" defer></script>
+  <!-- Tailwind utilities are compiled and embedded below. No npm / Tailwind CDN is needed on Google Apps Script. -->
+  <style id="tailwind-utilities">/*! tailwindcss v4.2.1 | MIT License | https://tailwindcss.com */
+:root, :host {
+  --spacing: 0.25rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: calc(1.25 / 0.875);
+}
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.w-full {
+  width: 100%;
+}
+.items-center {
+  align-items: center;
+}
+.gap-3 {
+  gap: calc(var(--spacing) * 3);
+}
+.gap-5 {
+  gap: calc(var(--spacing) * 5);
+}
+.text-sm {
+  font-size: var(--text-sm);
+  line-height: var(--tw-leading, var(--text-sm--line-height));
+}
+</style>
+  <style>
+    :root{color-scheme:light;--bg:#f2f8f7;--panel:#fff;--glass:rgba(255,255,255,.78);--ink:#193a40;--muted:#73898b;--line:#e0ece9;--primary:#0C7C82;--accent:#35B4B0;--soft:#e2f4f0;--input:#f7faf9;--danger:#d32f2f;--shadow:0 18px 60px #153f3810;--backdrop:rgba(12,39,43,.46)}
+    [data-theme=dark]{color-scheme:dark;--bg:#102124;--panel:#192e32;--glass:rgba(25,46,50,.88);--ink:#e3f4f1;--muted:#a2b9b8;--line:#2d4548;--primary:#6ed8d0;--accent:#35B4B0;--soft:#224447;--input:#13272b;--danger:#ff9191;--shadow:0 18px 60px #0003;--backdrop:rgba(0,10,13,.7)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Sarabun,sans-serif}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:wait;opacity:.65}a{color:inherit;text-decoration:none}h1,h2,h3,p{margin:0}button{color:inherit}button:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}input:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}[hidden]{display:none!important}svg{width:22px;height:22px;flex-shrink:0;vertical-align:middle}.muted{color:var(--muted)}.eyebrow{color:var(--primary);font-size:11px;letter-spacing:2px;font-weight:800}.pill{display:inline-flex;align-items:center;gap:6px;padding:5px 11px;border-radius:30px;background:var(--soft);color:var(--primary);font-size:12px;font-weight:600}.pill svg{width:14px;height:14px}.btn{border:1px solid var(--line);border-radius:12px;min-height:43px;padding:9px 15px;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--panel);font-weight:600;transition:.2s}.btn:hover{border-color:var(--accent);transform:translateY(-1px)}.btn.primary{background:#0C7C82;border-color:#0C7C82;color:white;box-shadow:0 5px 14px #0c7c8226}.btn.danger{color:var(--danger)}.icon-btn{width:42px;height:42px;padding:10px;border:1px solid var(--line);border-radius:12px;background:var(--panel);display:inline-flex;align-items:center;justify-content:center}.icon-btn:hover{background:var(--soft)}.spinner{display:inline-block;width:19px;height:19px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .7s linear infinite}.loading-overlay{position:fixed;inset:0;z-index:100000;background:var(--backdrop);backdrop-filter:blur(5px);display:flex;align-items:center;justify-content:center}.loading-box{background:var(--panel);border-radius:22px;padding:27px 34px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow)}.skeleton{position:relative;overflow:hidden;background:var(--soft);border-radius:17px}.skeleton::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:translateX(-100%);animation:shimmer 1.4s infinite}.skeleton-line{height:16px;width:180px;margin:8px 0}.skeleton-card{aspect-ratio:1}.error-box{padding:28px;text-align:center;border:1px solid var(--line);border-radius:20px;background:var(--panel)}.error-box p{margin:8px 0 18px}.empty{text-align:center;padding:45px 20px;color:var(--muted)}.empty svg{width:40px;height:40px;margin-bottom:10px}
+    .home{min-height:100dvh;position:relative;isolation:isolate;display:flex;flex-direction:column}.home-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse at 7% 20%,#35b4b01c,transparent 48%),radial-gradient(ellipse at 96% 80%,#aed58120,transparent 48%),var(--bg);background-size:cover;background-position:center}.home-bg.has-image::after{content:'';position:absolute;inset:0;background:linear-gradient(var(--glass),var(--glass))}.ambient-canvas{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.35}.ambient-canvas canvas{width:100%;height:100%}.header{background:var(--glass);border-bottom:1px solid var(--line);backdrop-filter:blur(18px)}.header-inner{max-width:1260px;margin:auto;padding:22px 38px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:14px;min-width:0}.logo{width:54px;height:54px;border-radius:17px;background:#0C7C82;color:white;display:grid;place-items:center;flex-shrink:0;overflow:hidden}.logo svg{width:29px;height:29px}.logo img{width:100%;height:100%;object-fit:contain;background:var(--panel)}.brand-name{font-weight:700;font-size:19px;overflow-wrap:anywhere}.brand-sub{color:var(--muted);font-size:12px}.header-actions{display:flex;align-items:center;gap:12px}.date-label{text-align:right;font-size:12px;color:var(--muted)}.date-label strong{display:block;color:var(--ink);font-size:13px}.home-main{width:100%;max-width:1260px;margin:0 auto;padding:46px 38px 40px;flex:1}.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px}.hero h1{font-size:clamp(26px,3.1vw,40px);line-height:1.35;font-weight:800;letter-spacing:-.6px;margin:10px 0}.hero h1 span{color:var(--primary)}.hero p{color:var(--muted);font-size:14px}.launcher{background:var(--glass);border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(20px);border-radius:28px;padding:28px}.launcher-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:24px}.launcher-heading h2{font-size:17px;font-weight:700}.launcher-heading p{font-size:12px;color:var(--muted);margin-top:3px}.search{position:relative;width:220px}.search svg{position:absolute;left:12px;top:12px;width:18px;height:18px;color:var(--muted)}.search input{width:100%;background:var(--input);border:1px solid var(--line);border-radius:12px;padding:10px 12px 10px 39px;font-size:12px;color:var(--ink)}.card-grid{display:grid;grid-template-columns:repeat(var(--columns,6),minmax(0,1fr));gap:19px}.system-card{aspect-ratio:1;min-width:0;min-height:0;border-radius:23px;border:1px solid var(--line);background:var(--panel);box-shadow:0 5px 15px #173f3510;overflow:hidden;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;padding:16px;text-align:center;transition:transform .22s,box-shadow .22s,border-color .22s}.system-card:hover{transform:translateY(-5px);box-shadow:0 12px 25px #0c7c8220;border-color:var(--accent)}.system-card:active{transform:scale(.97)}.system-card[data-appearance=image]{padding:0}.system-card img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.card-symbol{width:60px;height:60px;border-radius:19px;background:color-mix(in srgb,var(--card-color) 12%,var(--panel));color:var(--card-color);display:grid;place-items:center}.card-symbol svg{width:31px;height:31px}[data-theme=dark] .card-symbol{color:color-mix(in srgb,var(--card-color) 65%,white)}.card-title{font-size:12px;font-weight:600;line-height:1.4;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.system-card[data-appearance=name] .card-title{font-size:15px;-webkit-line-clamp:5}.card-image-fallback{padding:16px}.system-card.is-loading::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,transparent,#ffffff40,transparent);animation:shimmer 1.4s infinite}.system-card.is-loading{background:var(--soft)}.launcher-foot{font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:17px;margin-top:25px;display:flex;align-items:center;gap:6px}.launcher-foot svg{width:14px;height:14px}.footer{text-align:center;padding:20px 70px 24px;color:var(--muted);font-size:11px}.footer strong{color:var(--primary);font-weight:500}.admin-fab{position:fixed;right:26px;bottom:26px;width:54px;height:54px;display:grid;place-items:center;border:1px solid #ffffff50;border-radius:18px;background:#0C7C82;color:white;box-shadow:0 8px 22px #0c7c8245;z-index:10;transition:.2s}.admin-fab:hover{transform:translateY(-3px)}
+    .admin-shell{min-height:100dvh;display:flex}.sidebar{width:254px;position:fixed;inset:0 auto 0 0;background:var(--panel);border-right:1px solid var(--line);z-index:30;display:flex;flex-direction:column;padding:28px 20px}.sidebar .brand{padding:0 3px 28px}.sidebar .logo{width:44px;height:44px;border-radius:14px}.sidebar .brand-name{font-size:16px}.sidebar .brand-sub{font-size:10px}.nav-label{font-size:10px;letter-spacing:1.5px;color:var(--muted);margin:15px 13px 12px}.nav-btn{width:100%;border:0;background:none;display:flex;align-items:center;gap:12px;text-align:left;padding:13px 15px;border-radius:13px;margin-bottom:8px;font-weight:500}.nav-btn.active{background:var(--soft);color:var(--primary);font-weight:700}.nav-btn:hover{background:var(--soft)}.sidebar-bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:17px}.admin-main{margin-left:254px;flex:1;min-width:0}.admin-topbar{height:83px;background:var(--panel);border-bottom:1px solid var(--line);padding:20px 38px;display:flex;align-items:center;justify-content:space-between;gap:12px}.admin-topbar .pill{font-size:11px}.mobile-menu{display:none}.admin-content{padding:34px 38px;max-width:1380px;margin:auto}.page-title{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:24px}.page-title h1{font-size:27px;font-weight:800;margin-top:6px}.page-title p{font-size:13px;color:var(--muted);margin-top:6px}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:24px}.stat{border:1px solid var(--line);background:var(--panel);border-radius:18px;padding:19px 22px;display:flex;align-items:center;gap:16px}.stat-icon{width:44px;height:44px;display:grid;place-items:center;border-radius:14px;background:var(--soft);color:var(--primary)}.stat strong{font-size:24px;font-weight:800;display:block;line-height:1.2}.stat span{font-size:12px;color:var(--muted)}.panel{border:1px solid var(--line);background:var(--panel);border-radius:20px;box-shadow:0 4px 24px #193a4004}.panel-head{padding:21px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px}.panel-head h2{font-size:16px;font-weight:700}.panel-head p{font-size:12px;color:var(--muted);margin-top:4px}.table-overflow{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:740px;text-align:left;font-size:13px}th{background:var(--input);color:var(--muted);font-weight:500;font-size:11px;padding:14px 20px}td{padding:16px 20px;border-bottom:1px solid var(--line);vertical-align:middle}tr:last-child td{border-bottom:0}.table-system{display:flex;align-items:center;gap:12px}.table-thumb{width:45px;height:45px;border-radius:12px;background:var(--soft);display:grid;place-items:center;flex-shrink:0;overflow:hidden}.table-thumb img{width:100%;height:100%;object-fit:cover}.table-thumb svg{width:22px;height:22px}.table-system strong{font-weight:600;display:block;max-width:310px;overflow-wrap:anywhere}.table-url{display:block;color:var(--muted);max-width:270px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:11px}.table-actions{display:flex;gap:7px}.table-actions .icon-btn{width:34px;height:34px;padding:7px;border-radius:9px}.table-actions svg{width:16px;height:16px}.table-actions .delete{color:var(--danger)}.order-badge{background:var(--input);border:1px solid var(--line);border-radius:9px;width:32px;height:30px;display:grid;place-items:center;font-size:12px}.mobile-overlay{position:fixed;inset:0;z-index:25;background:var(--backdrop)}
+    .settings-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;align-items:start}.panel-body{padding:25px}.field{display:block;margin-bottom:19px}.field>span,.field-label{display:block;font-size:13px;font-weight:600;margin-bottom:8px}.field input,.field select{width:100%;border:1px solid var(--line);background:var(--input);color:var(--ink);padding:11px 13px;border-radius:11px;min-height:45px}.field small,.help{display:block;font-size:11px;color:var(--muted);margin-top:6px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:17px}.upload-preview{height:150px;border:1px dashed var(--line);border-radius:14px;background:var(--input);display:grid;place-items:center;overflow:hidden;position:relative;margin-bottom:11px;color:var(--muted);text-align:center;font-size:12px}.upload-preview.logo-preview{height:120px}.upload-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}.upload-preview.background-preview img{object-fit:cover}.upload-preview svg{width:30px;height:30px;display:block;margin:0 auto 6px}.file-input{max-width:100%;font-size:12px;color:var(--muted)}.file-input::file-selector-button{border:1px solid var(--line);color:var(--primary);background:var(--soft);padding:8px 10px;border-radius:9px;margin-right:10px;cursor:pointer}.remove-image{font-size:11px;color:var(--danger);background:none;border:0;padding:6px 0}.save-bar{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin-top:24px}.settings-warning{font-size:12px;color:var(--muted);padding:15px;border:1px solid var(--line);border-radius:12px;background:var(--input);margin-top:12px}.dirty-badge{color:var(--primary);font-size:12px}
+    dialog{border:1px solid var(--line);border-radius:24px;padding:0;background:var(--panel);color:var(--ink);box-shadow:0 25px 80px #0003;max-height:90dvh;max-width:calc(100% - 28px);overflow:auto}dialog::backdrop{background:var(--backdrop);backdrop-filter:blur(6px)}.modal-head{display:flex;justify-content:space-between;align-items:center;padding:22px 25px;border-bottom:1px solid var(--line);gap:18px}.modal-head h2{font-size:19px;font-weight:700}.modal-head p{font-size:12px;color:var(--muted);margin-top:3px}.modal-body{padding:24px 25px}.modal-footer{display:flex;justify-content:flex-end;gap:10px;padding:17px 25px;border-top:1px solid var(--line);background:var(--input);position:sticky;bottom:0}.pin-dialog{width:365px;text-align:center}.pin-emblem{width:60px;height:60px;border-radius:20px;background:var(--soft);color:var(--primary);margin:0 auto 15px;display:grid;place-items:center}.pin-emblem svg{width:30px;height:30px}.pin-dialog h2{font-size:22px;font-weight:700}.pin-dialog p{font-size:12px;color:var(--muted);margin:7px 0 18px}.pin-input{width:100%;font-size:29px;letter-spacing:16px;text-align:center;border:1px solid var(--line);background:var(--input);color:var(--ink);border-radius:13px;padding:9px 9px 9px 25px}.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:17px 0}.keypad button{border:1px solid var(--line);background:var(--input);border-radius:12px;height:49px;font-size:20px}.keypad button:hover{background:var(--soft)}.keypad button svg{width:20px;height:20px}.inline-error{font-size:12px;color:var(--danger);min-height:20px;margin:8px 0}.card-dialog{width:730px}.card-editor-grid{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:25px}.editor-preview{position:sticky;top:0}.editor-preview .system-card{width:100%;pointer-events:none}.editor-preview .help{text-align:center}.segments{display:flex;background:var(--input);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px;margin-bottom:17px}.segments button{flex:1;padding:8px 4px;border:0;background:none;border-radius:9px;font-size:12px}.segments button.active{background:var(--panel);color:var(--primary);box-shadow:0 2px 7px #0001;font-weight:700}.icon-picker{display:grid;grid-template-columns:repeat(8,1fr);gap:7px;margin-bottom:16px}.icon-choice{aspect-ratio:1;padding:0;border:1px solid var(--line);border-radius:9px;background:var(--input);display:grid;place-items:center;color:var(--muted)}.icon-choice.selected{border-color:var(--primary);color:var(--primary);background:var(--soft);box-shadow:0 0 0 1px var(--primary)}.icon-choice svg{width:19px;height:19px}.color-picker{display:flex;flex-wrap:wrap;gap:9px}.color-choice{width:25px;height:25px;border-radius:50%;border:3px solid var(--panel);outline:1px solid var(--line);background:var(--swatch)}.color-choice.selected{outline:2px solid var(--primary);outline-offset:2px}.close-pin{position:absolute;right:12px;top:12px;border:0;background:none;color:var(--muted);padding:7px}.swal2-popup{font-family:Sarabun,sans-serif!important;background:var(--panel)!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-radius:20px!important}.swal2-title{font-size:23px!important}.swal2-html-container{font-size:14px!important;color:var(--muted)!important}.swal2-confirm,.swal2-cancel{border-radius:10px!important}.swal2-container{z-index:99999!important}dialog>.swal2-container{position:fixed!important;background:var(--backdrop)!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* Image cards retain a square height even in older mobile WebViews without aspect-ratio. */
+    .system-card[data-appearance="image"]{display:block;padding:0;aspect-ratio:auto}
+    .system-card[data-appearance="image"]::before{content:"";display:block;padding-top:100%}
+    .system-card[data-appearance="image"] img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .system-card[data-appearance="image"]>.card-title{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px}
+
+    /* Home view selector and list rows use the same theme tokens as the card view. */
+    .launcher-controls{display:flex;align-items:center;gap:12px}
+    .view-switch{display:flex;gap:3px;padding:4px;border:1px solid var(--line);border-radius:12px;background:var(--input);flex-shrink:0}
+    .view-switch button{display:flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:9px;padding:7px 10px;background:transparent;color:var(--muted);font-size:12px;font-weight:600;min-height:34px}
+    .view-switch button svg{width:17px;height:17px}
+    .view-switch button.active{background:var(--panel);color:var(--primary);box-shadow:0 2px 7px #0001}
+    .view-switch button:hover{color:var(--primary)}
+    .card-grid.list-view{grid-template-columns:minmax(0,1fr);gap:10px}
+    .card-grid.list-view .skeleton-card{aspect-ratio:auto;height:78px;border-radius:16px}
+    .system-list-item{display:grid;grid-template-columns:52px minmax(0,1fr) 22px;align-items:center;gap:16px;min-width:0;min-height:78px;padding:12px 18px;background:var(--panel);border:1px solid var(--line);border-radius:17px;box-shadow:0 3px 12px #173f3506;transition:transform .2s,border-color .2s,box-shadow .2s}
+    .system-list-item:hover{transform:translateY(-2px);border-color:var(--accent);box-shadow:0 8px 20px #0c7c8214}
+    .system-list-item:active{transform:scale(.99)}
+    .list-thumbnail{display:grid;place-items:center;position:relative;overflow:hidden;width:52px;height:52px;border-radius:14px;background:color-mix(in srgb,var(--card-color) 12%,var(--panel));color:var(--card-color);flex-shrink:0}
+    .list-thumbnail svg{width:26px;height:26px}
+    .list-thumbnail img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .list-system-name{min-width:0;font-size:15px;line-height:1.5;font-weight:600;overflow-wrap:anywhere}
+    .list-open-icon{color:var(--muted);display:flex;align-items:center;justify-content:center}
+    .list-open-icon svg{width:17px;height:17px}
+    [data-theme=dark] .list-thumbnail{color:color-mix(in srgb,var(--card-color) 65%,white)}
+    @media(max-width:760px){.launcher-controls{width:100%;gap:10px}.launcher-controls .search{width:auto;min-width:0;flex:1}.view-switch button{padding:7px 8px;font-size:11px}.view-switch button svg{width:15px;height:15px}.system-list-item{grid-template-columns:44px minmax(0,1fr) 18px;gap:12px;padding:11px 12px;min-height:68px;border-radius:14px}.list-thumbnail{width:44px;height:44px;border-radius:12px}.list-thumbnail svg{width:23px;height:23px}.list-system-name{font-size:13px}.list-open-icon svg{width:15px;height:15px}}
+    @media(max-width:360px){.launcher-controls{flex-wrap:wrap}.launcher-controls .search{flex-basis:100%}.view-switch{margin-left:auto}}
+    @keyframes spin{to{transform:rotate(360deg)}}@keyframes shimmer{to{transform:translateX(100%)}}
+    @media(min-width:1100px){.card-grid[style*="--columns: 8"] .card-symbol{width:45px;height:45px;border-radius:14px}.card-grid[style*="--columns: 8"] .system-card{padding:10px;gap:8px}}
+    @media(max-width:1099px){.card-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.sidebar{width:222px}.admin-main{margin-left:222px}.admin-content,.admin-topbar{padding-left:24px;padding-right:24px}.settings-grid{grid-template-columns:1fr}.stats{gap:12px}.stat{padding:16px 14px;gap:10px}}
+    @media(max-width:760px){.header-inner{padding:16px 20px;gap:12px}.brand-name{font-size:16px}.brand-sub{font-size:10px}.logo{width:44px;height:44px;border-radius:14px}.date-label{display:none}.home-main{padding:30px 20px}.hero{display:block}.hero .pill{margin-top:17px}.hero h1{font-size:29px}.hero p{font-size:12px}.launcher{padding:20px;border-radius:23px}.launcher-heading{align-items:start;flex-wrap:wrap;margin-bottom:19px}.search{width:100%}.card-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.system-card{border-radius:19px;padding:12px;gap:8px}.card-symbol{width:47px;height:47px;border-radius:15px}.card-symbol svg{width:27px;height:27px}.card-title{font-size:10px;-webkit-line-clamp:3}.system-card[data-appearance=name] .card-title{font-size:12px}.admin-fab{width:48px;height:48px;right:18px;bottom:18px;border-radius:16px}.footer{font-size:10px}.sidebar{transform:translateX(-100%);transition:transform .23s;width:254px}.sidebar.open{transform:translateX(0)}.admin-main{margin-left:0}.mobile-menu{display:inline-flex}.admin-topbar{height:73px;padding:15px 20px}.admin-content{padding:25px 20px}.page-title{align-items:flex-start}.page-title h1{font-size:24px}.page-title p{font-size:12px}.page-title>.btn{padding:9px 11px;font-size:12px}.stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.stat{display:block;padding:13px}.stat-icon{width:32px;height:32px;border-radius:10px;margin-bottom:10px}.stat-icon svg{width:18px;height:18px}.stat strong{font-size:20px}.stat span{font-size:10px}.panel-head,.panel-body{padding:20px}.card-editor-grid{grid-template-columns:minmax(0,1fr) 150px;gap:20px}.icon-picker{grid-template-columns:repeat(6,1fr)}.admin-topbar .pill{font-size:10px}.admin-topbar .pill svg{display:none}}
+    @media(max-width:480px){.home-main{padding:27px 15px}.header-inner{padding:15px}.brand{gap:10px}.brand-name{font-size:14px}.header-actions .icon-btn{width:37px;height:37px;padding:8px}.hero h1{font-size:26px}.launcher{padding:16px}.system-card{border-radius:16px;padding:8px;gap:6px}.card-symbol{width:38px;height:38px;border-radius:12px}.card-symbol svg{width:23px;height:23px}.card-title{font-size:10px;line-height:1.35;-webkit-line-clamp:2}.launcher-foot{font-size:10px}.card-editor-grid{display:flex;flex-direction:column-reverse;gap:17px}.editor-preview{position:static;width:130px;margin:auto}.icon-picker{grid-template-columns:repeat(8,1fr)}.form-row{grid-template-columns:1fr;gap:0}.modal-body{padding:20px}.modal-head{padding:18px 20px}.admin-content{padding:23px 15px}.page-title{flex-wrap:wrap}.save-bar{flex-wrap:wrap}.pin-dialog .modal-body{padding:30px 25px 24px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition:none!important;scroll-behavior:auto!important}}
+  </style>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('schoolhub.theme')==='dark'?'dark':'light'}catch(e){}</script>
+</head>
+<body>
+  <div id="home" class="home">
+    <div id="homeBackground" class="home-bg"></div>
+    <div class="ambient-canvas"><canvas id="ambient" aria-hidden="true"></canvas></div>
+    <header class="header"><div class="header-inner">
+      <div class="brand"><div class="logo" data-school-logo><span data-icon="graduation-cap"></span></div><div><div class="brand-name" data-school-name>โรงเรียนของคุณ</div><div class="brand-sub" data-affiliation>รวมลิงค์ระบบบริหารสถานศึกษา</div></div></div>
+      <div class="header-actions"><div id="today" class="date-label"></div><button class="icon-btn theme-toggle" type="button" aria-label="เปลี่ยนธีม"></button><button id="refreshHome" class="icon-btn" type="button" aria-label="โหลดข้อมูลใหม่"><span data-icon="refresh-cw"></span></button></div>
+    </div></header>
+    <main class="home-main">
+      <section class="hero"><div><div class="eyebrow">SCHOOL PORTAL</div><h1>รวมลิงค์ระบบ<br class="mobile-break"> <span>บริหารสถานศึกษา</span></h1><p>ทุกระบบงานของโรงเรียน เข้าถึงได้ง่ายในที่เดียว</p></div><span class="pill"><span data-icon="layers"></span><span id="homeCount">กำลังโหลดข้อมูล</span></span></section>
+      <section class="launcher" aria-label="ลิงก์ระบบงาน"><div class="launcher-heading"><div><h2>ระบบงานของโรงเรียน</h2><p id="homeViewHint">เลือกการ์ดเพื่อเปิดระบบที่ต้องการ</p></div><div class="launcher-controls"><label class="search"><span data-icon="search"></span><span class="sr-only">ค้นหาชื่อระบบ</span><input id="homeSearch" type="search" placeholder="ค้นหาระบบงาน…" maxlength="160"></label><div class="view-switch" role="group" aria-label="รูปแบบการแสดงระบบ"><button type="button" data-home-view="grid" class="active" aria-pressed="true" aria-label="แสดงแบบไอคอน"><span data-icon="layout-grid"></span><span>ไอคอน</span></button><button type="button" data-home-view="list" aria-pressed="false" aria-label="แสดงแบบรายการ"><span data-icon="list"></span><span>รายการ</span></button></div></div></div>
+        <div id="homeCards" class="card-grid" aria-live="polite" aria-busy="true"></div><div id="homeEmpty" class="empty" hidden><span data-icon="search"></span><p>ไม่พบระบบที่ค้นหา</p></div>
+        <div class="launcher-foot"><span data-icon="external-link"></span>ระบบจะเปิดในแท็บใหม่ • จัดเรียงตามลำดับที่โรงเรียนกำหนด</div>
+      </section>
+    </main>
+    <footer class="footer">รวมลิงค์ระบบบริหารสถานศึกษา · <strong data-school-name>โรงเรียนของคุณ</strong></footer>
+    <button id="adminAccess" class="admin-fab" type="button" aria-label="เข้าสู่ระบบผู้ดูแล"><span data-icon="shield-check"></span></button>
+  </div>
+
+  <div id="admin" class="admin-shell" hidden>
+    <div id="menuOverlay" class="mobile-overlay" hidden></div>
+    <aside id="sidebar" class="sidebar" aria-label="เมนูผู้ดูแล">
+      <div class="brand"><div class="logo"><span data-icon="graduation-cap"></span></div><div><div class="brand-name">School Hub</div><div class="brand-sub">ระบบผู้ดูแลสถานศึกษา</div></div></div>
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav-btn active" data-page="cards" type="button"><span data-icon="layers"></span>จัดการการ์ดหน้าแรก</button>
+      <button class="nav-btn" data-page="settings" type="button"><span data-icon="settings"></span>ตั้งค่าระบบ</button>
+      <div class="sidebar-bottom"><button id="viewHome" class="nav-btn" type="button"><span data-icon="home"></span>ดูหน้าแรก</button><button id="logout" class="nav-btn" type="button"><span data-icon="log-out"></span>ออกจากระบบ</button><div class="help" style="padding:8px 15px">School management links<br>พื้นที่ทำงานสำหรับผู้ดูแล</div></div>
+    </aside>
+    <div class="admin-main"><header class="admin-topbar"><div class="flex items-center gap-3"><button id="menuToggle" class="icon-btn mobile-menu" type="button" aria-expanded="false" aria-controls="sidebar" aria-label="เปิดเมนู"><span data-icon="menu"></span></button><span class="muted text-sm">ระบบผู้ดูแลสถานศึกษา</span></div><div class="flex items-center gap-3"><span class="pill"><span data-icon="shield-check"></span>ผู้ดูแลระบบ</span><button class="icon-btn theme-toggle" type="button" aria-label="เปลี่ยนธีม"></button><button id="refreshAdmin" class="icon-btn" type="button" aria-label="โหลดข้อมูลใหม่"><span data-icon="refresh-cw"></span></button></div></header>
+      <main class="admin-content">
+        <section id="cardsPage"><div class="page-title"><div><div class="eyebrow">MANAGE YOUR PORTAL</div><h1>จัดการการ์ดหน้าแรก</h1><p>รวมระบบงาน จัดลำดับ และเลือกภาพหรือไอคอนที่ใช่</p></div><button id="addCard" class="btn primary" type="button"><span data-icon="plus"></span>เพิ่มระบบใหม่</button></div>
+          <div class="stats"><div class="stat"><div class="stat-icon"><span data-icon="layers"></span></div><div><strong id="statCards">0</strong><span>ระบบทั้งหมด</span></div></div><div class="stat"><div class="stat-icon"><span data-icon="image"></span></div><div><strong id="statImages">0</strong><span>การ์ดรูปภาพ</span></div></div><div class="stat"><div class="stat-icon"><span data-icon="layout-grid"></span></div><div><strong id="statColumns">6</strong><span>คอลัมน์บนเดสก์ท็อป</span></div></div></div>
+          <section class="panel"><div class="panel-head"><div><h2>รายการระบบงาน <span class="pill" id="tableCount">0 ระบบ</span></h2><p>แก้ไขรูปแบบการ์ดได้โดยคลิกปุ่มดินสอ</p></div></div><div class="table-overflow"><table><thead><tr><th style="width:70px">ลำดับ</th><th>ระบบงาน / URL</th><th>รูปแบบ</th><th style="width:110px">จัดการ</th></tr></thead><tbody id="cardTable"></tbody></table></div><div id="tableEmpty" class="empty" hidden><span data-icon="layers"></span><p>ยังไม่มีระบบงาน เพิ่มระบบแรกของคุณได้เลย</p></div></section>
+        </section>
+        <section id="settingsPage" hidden><div class="page-title"><div><div class="eyebrow">MAKE IT YOUR SCHOOL</div><h1>ตั้งค่าระบบ</h1><p>ข้อมูลโรงเรียน รูปภาพหน้าแรก และการเข้าถึงผู้ดูแล</p></div><span id="settingsDirty" class="pill" hidden>มีการแก้ไขที่ยังไม่บันทึก</span></div>
+          <form id="settingsForm"><div class="settings-grid"><div class="panel"><div class="panel-head"><div><h2>ข้อมูลสถานศึกษา</h2><p>แสดงในส่วนหัวและส่วนท้ายของเว็บไซต์</p></div><span data-icon="school"></span></div><div class="panel-body">
+            <label class="field"><span>ชื่อโรงเรียน <b class="muted">*</b></span><input id="schoolName" required maxlength="160" autocomplete="organization" placeholder="กรอกชื่อโรงเรียน"></label>
+            <label class="field"><span>ชื่อสังกัด <b class="muted">*</b></span><input id="affiliation" required maxlength="240" placeholder="กรอกชื่อสังกัด"></label>
+            <label class="field"><span>จำนวนคอลัมน์การ์ดบนเดสก์ท็อป</span><select id="columns"><option value="2">2 คอลัมน์</option><option value="3">3 คอลัมน์</option><option value="4">4 คอลัมน์</option><option value="5">5 คอลัมน์</option><option value="6">6 คอลัมน์</option><option value="7">7 คอลัมน์</option><option value="8">8 คอลัมน์</option></select><small>แท็บเล็ต 4 คอลัมน์ · มือถือ 3 คอลัมน์ เพื่อให้กดได้สะดวก</small></label>
+            <div class="field"><span>โลโก้โรงเรียน</span><div id="logoPreview" class="upload-preview logo-preview"></div><label class="sr-only" for="logoFile">อัปโหลดโลโก้โรงเรียน</label><input id="logoFile" class="file-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><small>PNG, JPG, WebP หรือ GIF ขนาดไม่เกิน 2 MB</small><button class="remove-image" data-remove="logo" type="button">นำโลโก้ออก</button></div>
+          </div></div><div class="grid gap-5"><div class="panel"><div class="panel-head"><div><h2>ภาพพื้นหลังหน้าแรก</h2><p>เพิ่มบรรยากาศที่เป็นเอกลักษณ์ของโรงเรียน</p></div><span data-icon="image"></span></div><div class="panel-body"><div id="backgroundPreview" class="upload-preview background-preview"></div><label class="sr-only" for="backgroundFile">อัปโหลดภาพพื้นหลัง</label><input id="backgroundFile" class="file-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><p class="help">PNG, JPG, WebP หรือ GIF ไม่เกิน 2 MB · แนะนำภาพแนวนอน</p><button class="remove-image" data-remove="background" type="button">นำภาพพื้นหลังออก</button></div></div>
+          <div class="panel"><div class="panel-head"><div><h2>เปลี่ยน PIN ผู้ดูแล</h2><p>เว้นว่างหากไม่ต้องการเปลี่ยน PIN</p></div><span data-icon="key-round"></span></div><div class="panel-body"><label class="field"><span>PIN ปัจจุบัน</span><input id="currentPin" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" autocomplete="current-password"></label><div class="form-row"><label class="field"><span>PIN ใหม่</span><input id="newPin" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" autocomplete="new-password"></label><label class="field"><span>ยืนยัน PIN ใหม่</span><input id="confirmPin" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" autocomplete="new-password"></label></div><p class="help">ตัวเลข 4 หลัก · หลังเปลี่ยน PIN ผู้ดูแลในอุปกรณ์อื่นต้องเข้าสู่ระบบใหม่</p></div></div></div></div>
+          <div class="save-bar"><button id="resetSettings" class="btn" type="button">คืนค่าที่ยังไม่บันทึก</button><button id="saveSettingsButton" class="btn primary" type="submit"><span data-icon="save"></span>บันทึกการตั้งค่า</button></div></form>
+        </section>
+      </main><footer class="footer">รวมลิงค์ระบบบริหารสถานศึกษา · <strong data-school-name>โรงเรียนของคุณ</strong></footer>
+    </div>
+  </div>
+
+  <dialog id="pinDialog" class="pin-dialog" aria-labelledby="pinTitle"><button class="close-pin" type="button" data-close="pinDialog" aria-label="ปิด"><span data-icon="x"></span></button><form id="pinForm" class="modal-body"><div class="pin-emblem"><span data-icon="shield-check"></span></div><h2 id="pinTitle">ผู้ดูแลระบบ</h2><p>กรอก PIN 4 หลักเพื่อเข้าสู่พื้นที่จัดการ</p><label class="sr-only" for="pinInput">PIN 4 หลัก</label><input id="pinInput" class="pin-input" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="current-password" required><div id="keypad" class="keypad"></div><div id="pinError" class="inline-error" role="alert"></div><button id="loginButton" class="btn primary w-full" type="submit"><span data-icon="log-in"></span>เข้าสู่ระบบ</button></form></dialog>
+  <dialog id="cardDialog" class="card-dialog" aria-labelledby="cardDialogTitle"><form id="cardForm"><div class="modal-head"><div><h2 id="cardDialogTitle">เพิ่มระบบใหม่</h2><p>ปรับแต่งการ์ดและตรวจสอบตัวอย่างก่อนบันทึก</p></div><button class="icon-btn" type="button" data-close="cardDialog" aria-label="ปิด"><span data-icon="x"></span></button></div><div class="modal-body"><div class="card-editor-grid"><div>
+    <div class="form-row"><label class="field"><span>ลำดับแสดง <b>*</b></span><input id="cardOrder" type="number" min="1" max="9999" step="1" required></label><label class="field"><span>ชื่อระบบ <b>*</b></span><input id="cardName" maxlength="160" required placeholder="ชื่อระบบงาน"></label></div>
+    <label class="field"><span>ลิงก์ URL <b>*</b></span><input id="cardUrl" type="url" required maxlength="2000" placeholder="https://example.com"><small>รองรับ http:// และ https://</small></label>
+    <span class="field-label">รูปแบบการ์ด</span><div id="appearancePicker" class="segments" role="group" aria-label="รูปแบบการ์ด"><button type="button" data-appearance="icon" class="active" aria-pressed="true">ไอคอน</button><button type="button" data-appearance="image" aria-pressed="false">รูปภาพ</button><button type="button" data-appearance="name" aria-pressed="false">ชื่อระบบ</button></div>
+    <div id="iconSection"><span class="field-label">เลือกไอคอน</span><div id="iconPicker" class="icon-picker" role="group" aria-label="เลือกไอคอน"></div><span class="field-label">สีไอคอน</span><div id="colorPicker" class="color-picker" role="group" aria-label="เลือกสี"></div></div>
+    <div id="imageSection" hidden><div id="cardImagePreview" class="upload-preview"></div><label class="sr-only" for="cardImageFile">อัปโหลดรูปภาพการ์ด</label><input id="cardImageFile" class="file-input" type="file" accept="image/png,image/jpeg,image/webp,image/gif"><p class="help">PNG, JPG, WebP หรือ GIF ไม่เกิน 2 MB · แสดงภาพอย่างเดียวบนการ์ด</p><button class="remove-image" data-remove="card" type="button">นำรูปภาพออก</button></div>
+    <div id="cardError" class="inline-error" role="alert"></div>
+  </div><aside class="editor-preview"><span class="field-label" style="text-align:center">ตัวอย่างหน้าแรก</span><div id="liveCardPreview"></div><p class="help">การ์ดสี่เหลี่ยมจัตุรัส</p></aside></div></div><div class="modal-footer"><button class="btn" type="button" data-close="cardDialog">ยกเลิก</button><button id="saveCardButton" class="btn primary" type="submit"><span data-icon="save"></span>บันทึกระบบ</button></div></form></dialog>
+  <div id="busyOverlay" class="loading-overlay" hidden aria-live="polite"><div class="loading-box" role="status"><span class="spinner" aria-hidden="true"></span><span id="busyLabel">กำลังดำเนินการ…</span></div></div>
+  <div id="statusAnnouncement" class="sr-only" aria-live="polite"></div>
+
+  <script>
+  'use strict';
+  // ไอคอนวาดจากชุด path ภายในไฟล์ ไม่ต้องเรียกบริการไอคอนภายนอก
+  const PATHS = {
+    'school':'<path d="m4 10 8-7 8 7v11H4Z"/><path d="M9 21v-7h6v7M2 10h20M12 7v3M7 12h1m8 0h1"/>',
+    'graduation-cap':'<path d="m2 8 10-5 10 5-10 5Z"/><path d="M6 10v6c4 3 8 3 12 0v-6M22 8v8"/>',
+    'users':'<circle cx="9" cy="8" r="3"/><path d="M2 21v-3a7 7 0 0 1 14 0v3M16 5a3 3 0 0 1 0 6m4 10v-3a6 6 0 0 0-3-5"/>',
+    'book-open':'<path d="M12 6c-3-3-7-3-10-2v15c3-1 7-1 10 2 3-3 7-3 10-2V4c-3-1-7-1-10 2Zm0 0v15"/>',
+    'clipboard-list':'<rect x="5" y="4" width="14" height="18" rx="2"/><rect x="9" y="2" width="6" height="4" rx="1"/><path d="M9 11h6M9 16h6"/>',
+    'chart-column':'<path d="M3 3v18h18M7 16v-5m5 5V7m5 9V4"/>',
+    'building-2':'<rect x="4" y="2" width="12" height="20" rx="2"/><path d="M16 8h4v14M8 6h4M8 10h4M8 14h4M9 22v-4h2v4"/>',
+    'briefcase':'<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V3h8v4M2 12c6 4 14 4 20 0M12 12v4"/>',
+    'award':'<circle cx="12" cy="8" r="5"/><path d="m8 12-2 10 6-3 6 3-2-10"/>',
+    'wallet':'<path d="M20 8V4H5a3 3 0 0 0 0 6h16v11H5a3 3 0 0 1-3-3V7m19 6h-6v5h6M17 15h.01"/>',
+    'shopping-cart':'<path d="M2 3h3l3 13h11l3-9H6"/><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>',
+    'landmark':'<path d="m3 8 9-5 9 5ZM3 21h18M6 11v7m6-7v7m6-7v7"/>',
+    'globe':'<circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/>',
+    'file-text':'<path d="M14 2H5v20h14V7Zm0 0v5h5M8 12h8M8 16h8"/>',
+    'calendar':'<rect x="3" y="5" width="18" height="17" rx="2"/><path d="M7 2v6m10-6v6M3 11h18M7 15h2m4 0h2M7 18h2"/>',
+    'database':'<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 4 18 4 18 0V5M3 12c0 4 18 4 18 0"/>',
+    'monitor':'<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 22h8M12 17v5"/>',
+    'mail':'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/>',
+    'heart':'<path d="M20 4c-4-3-8 1-8 1s-4-4-8-1C-3 10 12 21 12 21S27 10 20 4Z"/>',
+    'shield-check':'<path d="m12 2 9 4v6c0 6-9 10-9 10S3 18 3 12V6Z"/><path d="m8 12 3 3 5-6"/>',
+    'calculator':'<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 11h1m6 0h1M8 15h1m6 0h1M8 19h1m6 0h1"/>',
+    'folder':'<path d="M2 6a2 2 0 0 1 2-2h5l3 3h8a2 2 0 0 1 2 2v11H2Z"/>',
+    'settings':'<path d="m9 3-1 3-3 1-2 3 2 2-1 4 3 2 3-1 2 4 4-1 1-3 3-1 2-3-2-2 1-4-3-2-3 1-2-4Z"/><circle cx="12" cy="12" r="3"/>',
+    'link':'<path d="m10 13 4-4M8 16l-2 2a4 4 0 0 1-6-6l5-5a4 4 0 0 1 6 0m2 1 2-2a4 4 0 0 1 6 6l-5 5a4 4 0 0 1-6 0" transform="translate(1 0)"/>',
+    'library':'<path d="M3 3v18M7 3v18M11 3v18m5-18 5 17M2 21h11"/>',
+    'notebook-pen':'<path d="M13 3H5v18h12v-8M2 7h5M2 12h5M2 17h5m9-8 5-5 2 2-5 5-3 1Z"/>',
+    'contact':'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="9" r="2"/><path d="M8 17a4 4 0 0 1 8 0M6 3V1m12 2V1"/>',
+    'badge-check':'<path d="m12 2 3 2 4 1 1 4 2 3-2 3-1 4-4 1-3 2-3-2-4-1-1-4-2-3 2-3 1-4 4-1Z"/><path d="m8 12 3 3 5-6"/>',
+    'layers':'<path d="m12 3 10 5-10 5L2 8Zm-10 9 10 5 10-5M2 16l10 5 10-5"/>',
+    'megaphone':'<path d="M3 9v6h5l12 5V4L8 9Zm5 6 2 7h4l-3-6M20 10h3m-3 4h3"/>',
+    'lightbulb':'<path d="M9 18v-2a7 7 0 1 1 6 0v2M9 21h6M12 22v1M9 18h6"/>',
+    'cloud':'<path d="M6 19h12a4 4 0 0 0 1-8 7 7 0 0 0-13-2 5 5 0 0 0 0 10Z"/>',
+    'moon':'<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+    'sun':'<circle cx="12" cy="12" r="4"/><path d="M12 1v2m0 18v2M1 12h2m18 0h2M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/>',
+    'refresh-cw':'<path d="M21 3v6h-6M3 21v-6h6M4 9a8 8 0 0 1 13-5l4 5M3 15l4 5a8 8 0 0 0 13-5"/>',
+    'search':'<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6"/>',
+    'external-link':'<path d="M14 3h7v7M21 3l-9 9M11 3H3v18h18v-8"/>',
+    'home':'<path d="m2 10 10-8 10 8M4 8v14h16V8M9 22v-8h6v8"/>',
+    'log-out':'<path d="M9 3H3v18h6M9 12h13m-4-4 4 4-4 4"/>',
+    'log-in':'<path d="M15 3h6v18h-6M2 12h13m-4-4 4 4-4 4"/>',
+    'menu':'<path d="M3 6h18M3 12h18M3 18h18"/>',
+    'list':'<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+    'plus':'<path d="M12 4v16M4 12h16"/>',
+    'x':'<path d="m6 6 12 12M6 18 18 6"/>',
+    'image':'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1"/><path d="m3 17 5-5 4 4 4-7 5 7"/>',
+    'layout-grid':'<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>',
+    'save':'<path d="M3 3h14l4 4v14H3ZM7 3v6h9V3M7 21v-8h10v8"/>',
+    'key-round':'<circle cx="8" cy="8" r="5"/><path d="m12 12 9 9m-3-3 3-3m-6 0 3-3"/>',
+    'pencil':'<path d="m4 16 12-12 4 4L8 20l-5 1Zm9-9 4 4"/>',
+    'trash-2':'<path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/>',
+    'delete':'<path d="M8 4h14v16H8l-6-8Zm4 5 6 6m-6 0 6-6"/>'
+  };
+  const ICONS=Object.keys(PATHS).slice(0,32);
+  const ICON_LABELS=['โรงเรียน','การศึกษา','ผู้ใช้งาน','หนังสือ','รายการงาน','กราฟ','อาคาร','บุคลากร','รางวัล','การเงิน','จัดซื้อ','หน่วยงาน','เว็บไซต์','เอกสาร','ปฏิทิน','ฐานข้อมูล','คอมพิวเตอร์','อีเมล','ดูแลช่วยเหลือ','ความปลอดภัย','คำนวณ','แฟ้ม','ตั้งค่า','ลิงก์','ห้องสมุด','บันทึก','ข้อมูลบุคคล','รับรอง','ระบบงาน','ประกาศ','แนวคิด','คลาวด์'];
+  const COLORS=['#0C7C82','#35B4B0','#26A69A','#AED581','#FFCA28','#FF8A65','#EF5350','#4A2C6D','#D32F2F','#F57C00','#FBC02D','#0288D1'];
+  const $=id=>document.getElementById(id);
+  const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const svg=name=>'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(PATHS[name]||PATHS.school)+'</svg>';
+  const fillIcons=root=>root.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=svg(el.dataset.icon)});
+  const storage={get:(key,session=false)=>{try{return(session?sessionStorage:localStorage).getItem(key)}catch(_){return null}},set:(key,value,session=false)=>{try{(session?sessionStorage:localStorage).setItem(key,value)}catch(_){}},remove:(key,session=false)=>{try{(session?sessionStorage:localStorage).removeItem(key)}catch(_){}}};
+  let state=null, token=storage.get('schoolhub.token',true)||'', adminPage='cards', settingsDirty=false, busyCount=0, pinPending=false;
+  let homeView=storage.get('schoolhub.view')==='list'?'list':'grid';
+  let editor=null, settingsDraft={logoRef:'',backgroundRef:'',logo:null,background:null}, settingsRevision=0, fileReaders=0, resumeEditor=false;
+  const imageCache=new Map(), imageQueue=[];let imageActive=0;
+  const rpc=(method,...args)=>new Promise((resolve,reject)=>{
+    if(!window.google?.script?.run){reject(Object.assign(new Error('เปิดเว็บไซต์ผ่าน URL ของ Google Apps Script Web app หลังเรียก setup()'),{code:'SETUP'}));return}
+    google.script.run.withSuccessHandler(result=>{
+      if(result?.ok)resolve(result.data);else reject(Object.assign(new Error(result?.message||'เกิดข้อผิดพลาด'),{code:result?.code||'SERVER'}));
+    }).withFailureHandler(error=>reject(Object.assign(new Error(error?.message||'ติดต่อเซิร์ฟเวอร์ไม่ได้ กรุณาลองใหม่'),{code:'NETWORK'})))[method](...args);
+  });
+  function busy(on,label='กำลังดำเนินการ…'){busyCount=Math.max(0,busyCount+(on?1:-1));const overlay=$('busyOverlay');overlay.hidden=!busyCount;if(on){$('busyLabel').textContent=label;const dialog=document.querySelector('dialog[open]');(dialog||document.body).appendChild(overlay)}else if(!busyCount){document.body.appendChild(overlay)}document.querySelectorAll('dialog').forEach(d=>d.style.pointerEvents=busyCount?'none':'');}
+  async function alertBox(options){
+    const dialog=document.querySelector('dialog[open]');
+    const base={confirmButtonText:'ตกลง',confirmButtonColor:'#0C7C82',cancelButtonText:'ยกเลิก',cancelButtonColor:'#73898b',...options};
+    if(window.Swal)return Swal.fire({...base,...(dialog?{target:dialog,backdrop:false}:{} )});
+    // เมื่อ CDN ใช้งานไม่ได้ ยังแจ้งเตือนและยืนยันด้วย browser ได้
+    if(base.showCancelButton)return{isConfirmed:window.confirm((base.title||'')+'\n'+(base.text||''))};
+    window.alert((base.title||'')+'\n'+(base.text||''));return{isConfirmed:true};
+  }
+  async function handleError(error){
+    if(error.code==='AUTH'){
+      token='';storage.remove('schoolhub.token',true);
+      if($('cardDialog').open){resumeEditor=true;$('cardDialog').close()}
+      await alertBox({icon:'info',title:'กรุณาเข้าสู่ระบบใหม่',text:error.message});openPin();
+    }else if(error.code==='CONFLICT'){
+      const result=await alertBox({icon:'info',title:'ข้อมูลมีการเปลี่ยนแปลง',text:error.message,confirmButtonText:'โหลดข้อมูลล่าสุด',showCancelButton:true});
+      if(result.isConfirmed){busy(true,'กำลังโหลดข้อมูลล่าสุด…');try{applyState(await rpc('getPortalData'));if(editor)editor.revision=state.revision;settingsRevision=state.revision;busy(false);await alertBox({icon:'info',title:'โหลดข้อมูลล่าสุดแล้ว',text:'ร่างที่กรอกยังอยู่ กรุณาตรวจสอบก่อนกดบันทึกอีกครั้ง'})}catch(e){busy(false);await alertBox({icon:'error',title:'โหลดข้อมูลไม่สำเร็จ',text:e.message})}}
+    }else await alertBox({icon:'error',title:'ดำเนินการไม่สำเร็จ',text:error.message});
+  }
+  function setTheme(theme){document.documentElement.dataset.theme=theme;storage.set('schoolhub.theme',theme);document.querySelectorAll('.theme-toggle').forEach(btn=>{btn.innerHTML=svg(theme==='dark'?'sun':'moon');btn.setAttribute('aria-label',theme==='dark'?'เปลี่ยนเป็นธีมต้นฉบับ':'เปลี่ยนเป็นดาร์กโหมด');btn.setAttribute('title',theme==='dark'?'ธีมต้นฉบับ':'ดาร์กโหมด');btn.setAttribute('aria-pressed',String(theme==='dark'))});drawCanvas()}
+  function drawCanvas(){const c=$('ambient'),rect=$('home').getBoundingClientRect();if(!rect.width)return;const dpr=Math.min(window.devicePixelRatio||1,2);c.width=rect.width*dpr;c.height=rect.height*dpr;const ctx=c.getContext('2d');ctx.scale(dpr,dpr);ctx.fillStyle=document.documentElement.dataset.theme==='dark'?'#35B4B0':'#0C7C82';for(let x=24;x<rect.width;x+=36)for(let y=20;y<rect.height;y+=36){ctx.beginPath();ctx.arc(x,y,.6,0,Math.PI*2);ctx.fill()}}
+  function loadImage(ref){
+    if(imageCache.has(ref))return imageCache.get(ref);
+    const promise=new Promise((resolve,reject)=>{imageQueue.push({ref,resolve,reject});pumpImages()});imageCache.set(ref,promise);promise.catch(()=>imageCache.delete(ref));return promise;
+  }
+  function pumpImages(){while(imageActive<3&&imageQueue.length){const task=imageQueue.shift();imageActive++;rpc('getImage',task.ref,token).then(task.resolve,task.reject).finally(()=>{imageActive--;pumpImages()})}}
+  const observer='IntersectionObserver'in window?new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){observer.unobserve(entry.target);hydrateImage(entry.target)}}),{rootMargin:'150px'}):null;
+  function watchImages(root){root.querySelectorAll('[data-media]').forEach(el=>observer?observer.observe(el):hydrateImage(el))}
+  async function hydrateImage(el){
+    const ref=el.dataset.media;
+    try{
+      const src=await loadImage(ref);
+      if(!el.isConnected||el.dataset.media!==ref)return;
+      const img=new Image();
+      img.alt=el.dataset.imageAlt||'';
+      // IntersectionObserver already delays the request until the card is near the viewport.
+      // Mount before assigning src; detached loading="lazy" images may never load on mobile.
+      img.loading='eager';
+      img.decoding='async';
+      const isCurrent=()=>el.isConnected&&el.dataset.media===ref&&img.parentElement===el;
+      img.onload=()=>{if(isCurrent())el.classList.remove('is-loading','skeleton')};
+      img.onerror=()=>{if(isCurrent())imageFallback(el)};
+      if(typeof el.replaceChildren==='function')el.replaceChildren(img);
+      else{el.textContent='';el.appendChild(img)}
+      img.src=src;
+      if(img.complete&&img.naturalWidth)img.onload();
+    }catch(_){if(el.isConnected&&el.dataset.media===ref)imageFallback(el)}
+  }
+  function imageFallback(el){el.classList.remove('is-loading','skeleton');el.innerHTML=el.dataset.fallbackIcon?svg(ICONS.includes(el.dataset.fallbackIcon)?el.dataset.fallbackIcon:'school'):'<span class="card-title card-image-fallback">'+esc(el.dataset.imageAlt||'ไม่สามารถโหลดรูปภาพ')+'</span>';el.title='ไม่สามารถโหลดรูปภาพ กรุณาตรวจสอบไฟล์ใน Drive'}
+  function syncHomeView(){
+    $('homeCards').classList.toggle('list-view',homeView==='list');
+    document.querySelectorAll('[data-home-view]').forEach(btn=>{const active=btn.dataset.homeView===homeView;btn.classList.toggle('active',active);btn.setAttribute('aria-pressed',String(active))});
+    $('homeViewHint').textContent=homeView==='list'?'เลือกรายการเพื่อเปิดระบบที่ต้องการ':'เลือกการ์ดเพื่อเปิดระบบที่ต้องการ';
+  }
+  function setHomeView(mode){
+    if(!['grid','list'].includes(mode))return;
+    homeView=mode;storage.set('schoolhub.view',mode);syncHomeView();
+    if(state)renderHome();
+    $('statusAnnouncement').textContent=mode==='list'?'แสดงระบบงานแบบรายการ':'แสดงระบบงานแบบไอคอน';
+  }
+  function listMarkup(card){
+    const color=COLORS.includes(card.color)?card.color:COLORS[0],icon=ICONS.includes(card.icon)?card.icon:'school';
+    const useImage=card.appearance==='image'&&card.imageRef;
+    const thumbnail=useImage?'<span class="list-thumbnail skeleton" data-media="'+esc(card.imageRef)+'" data-image-alt="'+esc(card.name)+'" data-fallback-icon="'+icon+'"></span>':'<span class="list-thumbnail">'+svg(icon)+'</span>';
+    const url=/^https?:\/\//i.test(card.url||'')?card.url:'#';
+    return '<a class="system-list-item" style="--card-color:'+color+'" href="'+esc(url)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(card.name)+'">'+thumbnail+'<span class="list-system-name">'+esc(card.name)+'</span><span class="list-open-icon">'+svg('external-link')+'</span></a>';
+  }
+  function cardMarkup(card,previewSrc=''){
+    const color=COLORS.includes(card.color)?card.color:COLORS[0],icon=ICONS.includes(card.icon)?card.icon:'school';
+    const appearance=['icon','image','name'].includes(card.appearance)?card.appearance:'name';
+    let content='';let lazy='';
+    if(appearance==='image'&&(previewSrc||card.imageRef)){
+      if(previewSrc)content='<img src="'+esc(previewSrc)+'" alt="'+esc(card.name)+'">';
+      else{lazy=' data-media="'+esc(card.imageRef)+'" data-image-alt="'+esc(card.name)+'"';content='<span class="sr-only">'+esc(card.name)+'</span>'}
+    }else content=(appearance==='icon'?'<span class="card-symbol">'+svg(icon)+'</span>':'')+'<span class="card-title">'+esc(card.name||'ชื่อระบบ')+'</span>';
+    const safe=/^https?:\/\//i.test(card.url||'')?card.url:'#';
+    return '<a class="system-card'+(lazy?' is-loading':'')+'" data-appearance="'+appearance+'" style="--card-color:'+color+'" href="'+esc(safe)+'" target="_blank" rel="noopener noreferrer" aria-label="'+esc(card.name)+'" title="'+esc(card.name)+'"'+lazy+'>'+content+'</a>';
+  }
+  function skeletons(){ $('homeCards').innerHTML=Array.from({length:12},()=>'<div class="skeleton skeleton-card" aria-hidden="true"></div>').join('');$('homeCards').setAttribute('aria-busy','true');$('homeEmpty').hidden=true;}
+  function renderHome(){if(!state)return;const query=$('homeSearch').value.trim().toLocaleLowerCase('th');const cards=state.cards.filter(c=>c.name.toLocaleLowerCase('th').includes(query));syncHomeView();$('homeCount').textContent=state.cards.length+' ระบบพร้อมใช้งาน';$('homeCards').style.setProperty('--columns',state.settings.columns);if(observer)$('homeCards').querySelectorAll('[data-media]').forEach(el=>observer.unobserve(el));$('homeCards').innerHTML=cards.map(c=>homeView==='list'?listMarkup(c):cardMarkup(c)).join('');$('homeCards').setAttribute('aria-busy','false');$('homeEmpty').hidden=cards.length>0;$('homeEmpty').querySelector('p').textContent=state.cards.length?'ไม่พบระบบที่ค้นหา':'ยังไม่มีระบบงาน ผู้ดูแลสามารถเพิ่มการ์ดได้';watchImages($('homeCards'));requestAnimationFrame(drawCanvas)}
+  async function renderBrand(){if(!state)return;document.querySelectorAll('[data-school-name]').forEach(el=>el.textContent=state.settings.schoolName);document.querySelectorAll('[data-affiliation]').forEach(el=>el.textContent=state.settings.affiliation);const logoRef=state.settings.logoRef;document.querySelectorAll('[data-school-logo]').forEach(el=>{el.innerHTML=svg('graduation-cap');if(logoRef){el.dataset.media=logoRef;el.dataset.imageAlt='โลโก้ '+state.settings.schoolName;hydrateImage(el)}else delete el.dataset.media});const bg=$('homeBackground');const ref=state.settings.backgroundRef;bg.dataset.ref=ref;bg.classList.remove('has-image');bg.style.backgroundImage='';if(ref){try{const src=await loadImage(ref);if(bg.dataset.ref===ref){bg.style.backgroundImage='url("'+src+'")';bg.classList.add('has-image')}}catch(_){}}}
+  function renderTable(){if(!state)return;$('statCards').textContent=state.cards.length;$('statImages').textContent=state.cards.filter(c=>c.appearance==='image').length;$('statColumns').textContent=state.settings.columns;$('tableCount').textContent=state.cards.length+' ระบบ';$('tableEmpty').hidden=!!state.cards.length;$('cardTable').innerHTML=state.cards.map(c=>{
+    const thumb=c.appearance==='image'&&c.imageRef?'<span class="table-thumb skeleton" data-media="'+esc(c.imageRef)+'" data-image-alt="'+esc(c.name)+'"></span>':'<span class="table-thumb" style="color:'+ (COLORS.includes(c.color)?c.color:COLORS[0])+'">'+svg(c.icon)+'</span>';
+    return'<tr><td><span class="order-badge">'+esc(c.order)+'</span></td><td><div class="table-system">'+thumb+'<div><strong>'+esc(c.name)+'</strong><a class="table-url" href="'+esc(c.url||'#')+'" target="_blank" rel="noopener noreferrer">'+esc(c.url||'URL ไม่ถูกต้อง')+'</a></div></div></td><td><span class="pill">'+({icon:'ไอคอน',image:'รูปภาพ',name:'ชื่อระบบ'}[c.appearance]||'ชื่อระบบ')+'</span></td><td><div class="table-actions"><button class="icon-btn" data-edit="'+esc(c.id)+'" type="button" aria-label="แก้ไข '+esc(c.name)+'">'+svg('pencil')+'</button><button class="icon-btn delete" data-delete="'+esc(c.id)+'" type="button" aria-label="ลบ '+esc(c.name)+'">'+svg('trash-2')+'</button></div></td></tr>'
+  }).join('');watchImages($('cardTable'))}
+  function applyState(data,reset=false){state=data;renderBrand();renderHome();renderTable();if(reset||!settingsDirty)populateSettings();$('statusAnnouncement').textContent='โหลดข้อมูล '+state.cards.length+' ระบบแล้ว'}
+  async function reload(){
+    if(editor&&$('cardDialog').open)return;
+    const retained=settingsDirty;busy(true,'กำลังโหลดข้อมูลล่าสุด…');try{const data=await rpc('getPortalData');applyState(data);busy(false);if(retained)await alertBox({icon:'info',title:'โหลดข้อมูลล่าสุดแล้ว',text:'ร่างตั้งค่าของคุณยังอยู่ กดคืนค่าที่ยังไม่บันทึกเพื่อใช้ข้อมูลล่าสุดก่อนแก้ไขใหม่'})}catch(e){busy(false);await handleError(e)}
+  }
+  function openPin(){if(!state)return;$('pinInput').value='';$('pinError').textContent='';if(!$('pinDialog').open)$('pinDialog').showModal();$('pinInput').focus()}
+  async function openAdmin(){if(token){busy(true,'กำลังตรวจสอบการเข้าสู่ระบบ…');try{const result=await rpc('checkSession',token);applyState(result.state);showAdmin();return}catch(_){token='';storage.remove('schoolhub.token',true)}finally{busy(false)}}openPin()}
+  function showAdmin(){ $('home').hidden=true;$('admin').hidden=false;showPage(adminPage);window.scrollTo(0,0) }
+  function showHome(){closeMenu();$('admin').hidden=true;$('home').hidden=false;renderHome();window.scrollTo(0,0)}
+  function showPage(page){adminPage=page;$('cardsPage').hidden=page!=='cards';$('settingsPage').hidden=page!=='settings';document.querySelectorAll('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===page));closeMenu();if(page==='cards')watchImages($('cardTable'))}
+  function closeMenu(){$('sidebar').inert=window.innerWidth<=760;$('sidebar').classList.remove('open');$('menuOverlay').hidden=true;$('menuToggle').setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  function markDirty(){settingsDirty=true;$('settingsDirty').hidden=false}
+  function populateSettings(){if(!state)return;const s=state.settings;settingsDraft={logoRef:s.logoRef,backgroundRef:s.backgroundRef,logo:null,background:null};settingsRevision=state.revision;$('schoolName').value=s.schoolName;$('affiliation').value=s.affiliation;$('columns').value=s.columns;['currentPin','newPin','confirmPin','logoFile','backgroundFile'].forEach(id=>$(id).value='');settingsDirty=false;$('settingsDirty').hidden=true;uploadPreview('logoPreview',null,s.logoRef,'โลโก้โรงเรียน');uploadPreview('backgroundPreview',null,s.backgroundRef,'ภาพพื้นหลัง')}
+  function uploadPreview(id,src,ref,label){const el=$(id);delete el.dataset.media;el.classList.remove('skeleton');if(src){el.innerHTML='<img src="'+esc(src)+'" alt="'+esc(label)+'">'}else if(ref){el.dataset.media=ref;el.dataset.imageAlt=label;el.classList.add('skeleton');el.innerHTML='<span>กำลังโหลดรูปภาพ…</span>';hydrateImage(el)}else el.innerHTML='<div>'+svg('image')+'<span>ยังไม่ได้เลือกรูปภาพ</span></div>'}
+  function updateFileButtons(){const disabled=fileReaders>0; $('saveCardButton').disabled=disabled;$('saveSettingsButton').disabled=disabled}
+  async function readFile(input){
+    const file=input.files?.[0];if(!file)return null;
+    if(!['image/png','image/jpeg','image/webp','image/gif'].includes(file.type)||file.size>2*1024*1024||!file.size)throw new Error('เลือก PNG, JPG, WebP หรือ GIF ขนาดไม่เกิน 2 MB');
+    const src=await new Promise((resolve,reject)=>{const reader=new FileReader();reader.onload=()=>resolve(reader.result);reader.onerror=()=>reject(new Error('อ่านไฟล์ไม่สำเร็จ'));reader.readAsDataURL(file)});
+    await new Promise((resolve,reject)=>{const img=new Image();img.onload=resolve;img.onerror=()=>reject(new Error('ไฟล์นี้ไม่ใช่รูปภาพที่แสดงได้'));img.src=src});
+    return {payload:{mime:file.type,base64:src.split(',')[1]},src};
+  }
+  async function selectFile(kind,input){fileReaders++;updateFileButtons();busy(true,'กำลังตรวจสอบและแสดงตัวอย่างรูปภาพ…');let failure=null;try{const result=await readFile(input);if(result){if(kind==='card'&&editor){editor.image=result.payload;editor.previewSrc=result.src;editor.appearance='image';uploadPreview('cardImagePreview',result.src,'','รูปภาพการ์ด');renderEditor()}else if(kind!=='card'){settingsDraft[kind]=result.payload;settingsDraft[kind+'Src']=result.src;uploadPreview(kind+'Preview',result.src,'',kind==='logo'?'โลโก้โรงเรียน':'ภาพพื้นหลัง');markDirty()}}}catch(e){input.value='';failure=e}finally{fileReaders--;updateFileButtons();busy(false)}if(failure)await handleError(failure)}
+  function openCard(card=null){if(!state)return;editor={id:card?.id||'',order:card?.order||Math.max(0,...state.cards.map(c=>c.order))+1,name:card?.name||'',url:card?.url||'',appearance:card?.appearance||'icon',icon:card?.icon||'school',color:card?.color||COLORS[0],imageRef:card?.imageRef||'',image:null,previewSrc:'',revision:state.revision};$('cardForm').reset();$('cardDialogTitle').textContent=card?'แก้ไขระบบงาน':'เพิ่มระบบใหม่';$('cardOrder').value=editor.order;$('cardName').value=editor.name;$('cardUrl').value=editor.url;$('cardError').textContent='';uploadPreview('cardImagePreview',null,editor.imageRef,'รูปภาพการ์ด');renderEditor();$('cardDialog').showModal();$('cardName').focus()}
+  function renderEditor(){if(!editor)return;editor.name=$('cardName').value;editor.url=$('cardUrl').value;document.querySelectorAll('[data-appearance]').forEach(btn=>{if(btn.tagName==='BUTTON'){btn.classList.toggle('active',btn.dataset.appearance===editor.appearance);btn.setAttribute('aria-pressed',String(btn.dataset.appearance===editor.appearance))}});$('iconSection').hidden=editor.appearance!=='icon';$('imageSection').hidden=editor.appearance!=='image';$('iconPicker').innerHTML=ICONS.map((name,i)=>'<button class="icon-choice'+(name===editor.icon?' selected':'')+'" type="button" data-pick-icon="'+name+'" aria-label="'+ICON_LABELS[i]+'" title="'+ICON_LABELS[i]+'" aria-pressed="'+(name===editor.icon)+'">'+svg(name)+'</button>').join('');$('colorPicker').innerHTML=COLORS.map(color=>'<button class="color-choice'+(color===editor.color?' selected':'')+'" type="button" data-pick-color="'+color+'" style="--swatch:'+color+'" aria-label="สี '+color+'" aria-pressed="'+(color===editor.color)+'"></button>').join('');$('liveCardPreview').innerHTML=cardMarkup({...editor,name:editor.name||'ชื่อระบบ'},editor.previewSrc);watchImages($('liveCardPreview'))}
+  async function initialLoad(){skeletons();try{applyState(await rpc('getPortalData'),true)}catch(e){$('homeCount').textContent='รอการเชื่อมต่อ';$('homeCards').style.gridTemplateColumns='1fr';$('homeCards').innerHTML='<div class="error-box">'+svg('database')+'<h3>ยังไม่สามารถโหลดข้อมูลได้</h3><p>'+esc(e.message)+'</p><button class="btn primary" id="retryLoad" type="button">ลองใหม่</button></div>';$('homeCards').setAttribute('aria-busy','false');$('retryLoad').onclick=()=>{$('homeCards').style.gridTemplateColumns='';initialLoad()}}}
+  fillIcons(document);setTheme(document.documentElement.dataset.theme);syncHomeView();
+  const today=new Date();$('today').innerHTML='<strong>'+esc(today.toLocaleDateString('th-TH',{weekday:'long'}))+'</strong>'+esc(today.toLocaleDateString('th-TH',{day:'numeric',month:'long',year:'numeric'}));
+  $('keypad').innerHTML=[1,2,3,4,5,6,7,8,9,'clear',0,'back'].map(key=>'<button type="button" data-key="'+key+'" aria-label="'+(key==='clear'?'ล้าง PIN':key==='back'?'ลบตัวเลขล่าสุด':key)+'">'+(key==='clear'?'C':key==='back'?svg('delete'):key)+'</button>').join('');
+  document.querySelectorAll('.theme-toggle').forEach(btn=>btn.onclick=()=>setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
+  document.querySelectorAll('[data-home-view]').forEach(btn=>btn.onclick=()=>setHomeView(btn.dataset.homeView));
+  $('homeSearch').oninput=renderHome;$('refreshHome').onclick=reload;$('refreshAdmin').onclick=reload;$('adminAccess').onclick=openAdmin;$('viewHome').onclick=showHome;
+  document.querySelectorAll('[data-page]').forEach(btn=>btn.onclick=()=>showPage(btn.dataset.page));
+  $('menuToggle').onclick=()=>{const open=!$('sidebar').classList.contains('open');$('sidebar').inert=!open;$('sidebar').classList.toggle('open',open);$('menuOverlay').hidden=!open;$('menuToggle').setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':''};$('menuOverlay').onclick=closeMenu;
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});window.addEventListener('resize',()=>{if(window.innerWidth>760||!$('sidebar').classList.contains('open'))closeMenu();drawCanvas()});
+  document.querySelectorAll('[data-close]').forEach(btn=>btn.onclick=()=>{if(!busyCount&&!pinPending)$(btn.dataset.close).close()});document.querySelectorAll('dialog').forEach(dialog=>dialog.addEventListener('cancel',event=>{if(busyCount||pinPending)event.preventDefault()}));
+  $('cardDialog').addEventListener('close',()=>{if(!resumeEditor)editor=null});
+  $('pinInput').oninput=()=>{$('pinInput').value=$('pinInput').value.replace(/\D/g,'').slice(0,4);$('pinError').textContent=''};
+  $('keypad').onclick=event=>{const key=event.target.closest('[data-key]')?.dataset.key;if(key===undefined)return;const input=$('pinInput');input.value=key==='clear'?'':key==='back'?input.value.slice(0,-1):(input.value+key).slice(0,4);$('pinError').textContent='';input.focus()};
+  $('pinForm').onsubmit=async event=>{event.preventDefault();if(pinPending||busyCount||!/^\d{4}$/.test($('pinInput').value))return;pinPending=true;$('pinInput').disabled=true;$('keypad').querySelectorAll('button').forEach(btn=>btn.disabled=true);$('loginButton').disabled=true;$('loginButton').innerHTML='<span class="spinner"></span>กำลังเข้าสู่ระบบ…';try{const result=await rpc('login',$('pinInput').value);token=result.token;storage.set('schoolhub.token',token,true);$('pinDialog').close();applyState(result.state);showAdmin();if(resumeEditor&&editor){resumeEditor=false;$('cardDialog').showModal()}}catch(e){$('pinError').textContent=e.message;$('pinInput').value='';$('pinInput').focus()}finally{pinPending=false;$('pinInput').disabled=false;$('keypad').querySelectorAll('button').forEach(btn=>btn.disabled=false);$('loginButton').disabled=false;$('loginButton').innerHTML=svg('log-in')+'เข้าสู่ระบบ';if($('pinDialog').open)$('pinInput').focus()}};
+  $('logout').onclick=async()=>{const result=await alertBox({icon:'question',title:'ออกจากระบบผู้ดูแล?',text:settingsDirty?'การตั้งค่าที่ยังไม่บันทึกจะถูกยกเลิก':'คุณสามารถเข้าสู่ระบบอีกครั้งด้วย PIN',showCancelButton:true,confirmButtonText:'ออกจากระบบ'});if(!result.isConfirmed)return;busy(true,'กำลังออกจากระบบ…');try{await rpc('logout',token);token='';storage.remove('schoolhub.token',true);populateSettings();showHome();busy(false);await alertBox({icon:'success',title:'ออกจากระบบแล้ว',timer:1400,showConfirmButton:false})}catch(e){busy(false);await handleError(e)}};
+  $('addCard').onclick=()=>openCard();
+  $('cardTable').onclick=async event=>{const edit=event.target.closest('[data-edit]');if(edit){openCard(state.cards.find(c=>c.id===edit.dataset.edit));return}const del=event.target.closest('[data-delete]');if(!del)return;const card=state.cards.find(c=>c.id===del.dataset.delete);if(!card)return;const result=await alertBox({icon:'warning',title:'ลบระบบนี้?',text:card.name,showCancelButton:true,confirmButtonText:'ลบระบบ',confirmButtonColor:'#D32F2F'});if(!result.isConfirmed)return;busy(true,'กำลังลบระบบ…');try{applyState(await rpc('deleteCard',token,card.id,state.revision));busy(false);await alertBox({icon:'success',title:'ลบระบบแล้ว',timer:1400,showConfirmButton:false})}catch(e){busy(false);await handleError(e)}};
+  $('appearancePicker').onclick=event=>{const btn=event.target.closest('[data-appearance]');if(btn&&editor){editor.appearance=btn.dataset.appearance;renderEditor()}};
+  $('iconPicker').onclick=event=>{const btn=event.target.closest('[data-pick-icon]');if(btn&&editor){editor.icon=btn.dataset.pickIcon;renderEditor()}};
+  $('colorPicker').onclick=event=>{const btn=event.target.closest('[data-pick-color]');if(btn&&editor){editor.color=btn.dataset.pickColor;renderEditor()}};
+  ['cardName','cardUrl'].forEach(id=>$(id).oninput=renderEditor);
+  $('cardImageFile').onchange=()=>selectFile('card',$('cardImageFile'));$('logoFile').onchange=()=>selectFile('logo',$('logoFile'));$('backgroundFile').onchange=()=>selectFile('background',$('backgroundFile'));
+  document.querySelectorAll('[data-remove]').forEach(btn=>btn.onclick=()=>{const kind=btn.dataset.remove;if(kind==='card'&&editor){editor.imageRef='';editor.image=null;editor.previewSrc='';$('cardImageFile').value='';uploadPreview('cardImagePreview',null,'','รูปภาพการ์ด');renderEditor()}else if(kind!=='card'){settingsDraft[kind+'Ref']='';settingsDraft[kind]=null;settingsDraft[kind+'Src']='';$(kind+'File').value='';uploadPreview(kind+'Preview',null,'','');markDirty()}});
+  $('cardForm').onsubmit=async event=>{event.preventDefault();if(!editor||fileReaders||busyCount)return;const draft={...editor,order:Number($('cardOrder').value),name:$('cardName').value.trim(),url:$('cardUrl').value.trim()};delete draft.previewSrc;if(draft.appearance==='image'&&!draft.image&&!draft.imageRef){$('cardError').textContent='กรุณาเลือกรูปภาพ หรือใช้รูปแบบไอคอน/ชื่อระบบ';return}try{const parsed=new URL(draft.url);if(!['http:','https:'].includes(parsed.protocol)||parsed.username||parsed.password)throw Error()}catch(_){$('cardError').textContent='URL ต้องขึ้นต้นด้วย http:// หรือ https://';return}busy(true,'กำลังบันทึกระบบ…');$('saveCardButton').disabled=true;try{const result=await rpc('saveCard',token,draft);$('cardDialog').close();applyState(result);busy(false);await alertBox({icon:'success',title:'บันทึกระบบแล้ว',timer:1600,showConfirmButton:false})}catch(e){busy(false);await handleError(e)}finally{$('saveCardButton').disabled=false}};
+  $('settingsForm').addEventListener('input',event=>{if(event.target.type!=='file')markDirty()});
+  $('resetSettings').onclick=async()=>{if(settingsDirty){const result=await alertBox({icon:'question',title:'คืนค่าที่ยังไม่บันทึก?',text:'ใช้ข้อมูลล่าสุดที่โหลดจาก Google Sheets',showCancelButton:true,confirmButtonText:'คืนค่า'});if(!result.isConfirmed)return}populateSettings()};
+  $('settingsForm').onsubmit=async event=>{event.preventDefault();if(fileReaders||busyCount)return;const newPin=$('newPin').value,confirm=$('confirmPin').value;if(newPin!==confirm){await alertBox({icon:'warning',title:'PIN ใหม่ไม่ตรงกัน',text:'กรุณากรอก PIN ใหม่และยืนยันให้ตรงกัน'});return}if(newPin&&!/^\d{4}$/.test($('currentPin').value)){await alertBox({icon:'warning',title:'กรุณากรอก PIN ปัจจุบัน',text:'ต้องใช้ PIN ปัจจุบันเพื่อเปลี่ยนเป็น PIN ใหม่'});return}const payload={schoolName:$('schoolName').value.trim(),affiliation:$('affiliation').value.trim(),columns:Number($('columns').value),logoRef:settingsDraft.logoRef,backgroundRef:settingsDraft.backgroundRef,logo:settingsDraft.logo,background:settingsDraft.background,revision:settingsRevision,currentPin:$('currentPin').value,newPin};busy(true,'กำลังบันทึกการตั้งค่า…');$('saveSettingsButton').disabled=true;try{applyState(await rpc('saveSettings',token,payload),true);busy(false);await alertBox({icon:'success',title:'บันทึกการตั้งค่าแล้ว',text:newPin?'อัปเดต PIN ผู้ดูแลเรียบร้อย':'ข้อมูลโรงเรียนพร้อมแสดงในหน้าแรก',timer:1900,showConfirmButton:false})}catch(e){busy(false);await handleError(e)}finally{$('saveSettingsButton').disabled=false}};
+  initialLoad();
+  </script>
+</body>
+</html>
